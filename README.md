@@ -1,4 +1,14 @@
 # Gerenciador de alunos
+## Atualização! 
+
+###Menu Para Remover um item.
+
+![](remove.png)
+
+Criei esse Menu para remover elementos da listas. e ainda fiz a modificação para não permitir nomes e médias fora do Padrão como tem na descrição para remover os BUGS, além de adicionar o QMessageBox no projeto.
+
+A seguir tem a descrição de como é o projeto original.
+
 ### Código exemplo da aplicação desenvolvida em [QT](http://www.qt.io) para gerenciar as notas de uma turma
 
 A aplicação deve permitir que o usuário insira vários alunos mostrando os alunos em uma tabela com a possibilidade de ordenação por nomes e nota. A Figura abaixo mostra a tela inicial da aplicação.
@@ -23,7 +33,7 @@ As labels são importantes pois passam informações sobre outros *widgets* ao u
 
 Para inserir labels no QT Creator basta estar no modo de edição da interface gráfica (basta dar um duplo clique no arquivo mainwindow.ui) procurar no lado esquerdo da tela pelos *Display Widgets* e a label será o primeiro elemento, basta então clicar e arrastar a label para a posição que você desejar na sua interface. No lado direito da tela você vai encontrar as propriedades da sua label, como o texto que ela vai exibir, o tipo de fonte usada, o tamanho da fonte e uma infinidade de outras opções. Lembre-se de sempre mudar o *objectName* do seu widget para que você possa manipular ela no código. A Figura abaixo ilustra a tela do QT Creator e onde encontrar a label e mudar o seu *objectName*.
 
-![](figuras/label_qt.png)
+![](label_qt.png)
 
 Se você criar uma label como o *objectName* de `lbl_media` por exemplo, dentro do código C++ você pode mudar o texto que ela exibe com o seguinte comando `ui->lbl_media->setText("Oi mundo");` 
 
