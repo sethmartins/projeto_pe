@@ -1,7 +1,7 @@
 # Gerenciador de alunos
 ## Atualização! 
 
-###Menu Para Remover um item.
+### Menu Para Remover um item.
 
 ![](remove.png)
 
