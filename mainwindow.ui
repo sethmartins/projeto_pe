@@ -30,7 +30,7 @@
      <attribute name="title">
       <string>Inserir</string>
      </attribute>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -76,6 +76,12 @@
          </item>
          <item>
           <widget class="QPushButton" name="btnInserir">
+           <property name="maximumSize">
+            <size>
+             <width>377</width>
+             <height>23</height>
+            </size>
+           </property>
            <property name="text">
             <string>Inserir</string>
            </property>
@@ -85,6 +91,12 @@
        </item>
        <item>
         <widget class="QTableWidget" name="tabelaDados">
+         <property name="maximumSize">
+          <size>
+           <width>16777191</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <attribute name="horizontalHeaderVisible">
           <bool>false</bool>
          </attribute>
@@ -256,6 +268,7 @@
     </property>
     <addaction name="actionSalvar"/>
     <addaction name="actionCarregar"/>
+    <addaction name="actionRemover"/>
    </widget>
    <addaction name="menuArquivo"/>
   </widget>
@@ -276,6 +289,11 @@
   <action name="actionCarregar">
    <property name="text">
     <string>Carregar</string>
+   </property>
+  </action>
+  <action name="actionRemover">
+   <property name="text">
+    <string>Remover</string>
    </property>
   </action>
  </widget>

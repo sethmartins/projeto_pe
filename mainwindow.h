@@ -36,6 +36,7 @@ private slots:
     void salvar();
 
     void carregar();
+     void remover();
 
 private:
     Ui::MainWindow *ui;

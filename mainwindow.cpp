@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->actionSalvar,SIGNAL(triggered()),this,SLOT(salvar()));
     connect(ui->actionCarregar,SIGNAL(triggered()),this,SLOT(carregar()));
+    connect(ui->actionRemover,SIGNAL(triggered()),this,SLOT(remover()));
 }
 
 void MainWindow::atualizarDados()
@@ -58,7 +59,19 @@ void MainWindow::carregar()
     for(int i=0;i<turma.size();i++){
         ui->tabelaDados->insertRow(i);
         inserirAlunoNaTabela(turma[i],i);
+        //turma.inserirAluno(turma[i]);
     }
+}
+void MainWindow::remover()
+{
+    int row  = ui->tabelaDados->currentRow();
+    ui->tabelaDados->removeRow(row);
+
+
+
+    turma.Remove(row);
+
+    atualizarDados();
 }
 
 MainWindow::~MainWindow()
@@ -70,6 +83,7 @@ void MainWindow::on_btnInserir_clicked()
 {
     Aluno aluno;
 
+
     if(ui->entradaNome->text()==""||ui->entradaMedia->text()=="")
     {
         QMessageBox::critical(this,"Erro","Erro! Nome do Aluno ou média não pode ser vazio.");
@@ -77,16 +91,26 @@ void MainWindow::on_btnInserir_clicked()
     {
         QMessageBox::critical(this,"Erro","Erro! Nome do Aluno não pode ser menor que letras ou média não pode ser menor que 0 e maoir 100.");
     }else{
+
         aluno.setNome(ui->entradaNome->text());
         aluno.setMedia(ui->entradaMedia->text().toDouble());
 
-        int linha = ui->tabelaDados->rowCount();
-        ui->tabelaDados->insertRow(linha);
-        inserirAlunoNaTabela(aluno,linha);
+
+        if (turma.ProcuraNome(aluno))
+        {
+            QMessageBox::critical(this,"Erro","Erro! Nome do Aluno não pode ser repetido.");
+        }
+        else
+        {
+            int linha = ui->tabelaDados->rowCount();
+            ui->tabelaDados->insertRow(linha);
+            inserirAlunoNaTabela(aluno,linha);
 
 
-        turma.inserirAluno(aluno);
-        atualizarDados();
+            turma.inserirAluno(aluno);
+            atualizarDados();
+        }
+
     }
 
 

@@ -1,5 +1,6 @@
 #include "turma.h"
 
+
 Turma::Turma()
 {
 
@@ -7,9 +8,16 @@ Turma::Turma()
 
 void Turma::inserirAluno(Aluno a)
 {
+
     turma.push_back(a);
 }
-
+QVector<Aluno> Turma::getTurma(){
+    return turma;
+}
+void Turma::Remove(int index)
+{
+    turma.remove(index);
+}
 Aluno Turma::operator[](int i)
 {
     return turma[i];
@@ -27,6 +35,7 @@ int Turma::getMedia()
 int Turma::getMaiorMedia()
 {
     Aluno *menor = std::min_element(turma.begin(),turma.end(),compararPorMedia);
+
     return menor->getMedia();
 }
 
@@ -35,7 +44,18 @@ int Turma::getMenorMedia()
     Aluno *maior = std::max_element(turma.begin(),turma.end(),compararPorMedia);
     return maior->getMedia();
 }
+bool Turma::ProcuraNome(Aluno aluno)
+{
 
+    bool aux = false;
+
+    for(int i = 0; i < turma.size(); i++)
+        if(aluno.getNome() == turma[i].getNome()){
+            aux = true;
+        }
+    return aux;
+    //return std::find(turma.constBegin(),turma.constEnd(),aluno) == turma.constEnd();
+}
 void Turma::ordenarPorNome()
 {
     std::sort(turma.begin(),turma.end(),compararPorNome);
@@ -88,7 +108,9 @@ bool compararPorMedia(Aluno a, Aluno b)
 {
     return a.getMedia()>b.getMedia();
 }
-
+bool compararNome(Aluno a, Aluno b){
+    return a.getNome()==b.getNome();
+}
 bool compararPorNome(Aluno a, Aluno b)
 {
     return a.getNome()<b.getNome();
